@@ -1,0 +1,22 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/voice-core",
+    "crates/voice-context",
+    "crates/voice-format",
+    "crates/voice-intent",
+    "crates/voice-act",
+    "crates/voice-audio",
+    "crates/voice-asr-whisper",
+    "crates/voice-cli",
+]
+
+[workspace.package]
+edition = "2021"
+version = "0.1.1"
+license = "GPL-3.0-only"
+publish = false
+
+[workspace.lints.clippy]
+unwrap_used = "warn"
+expect_used = "warn"

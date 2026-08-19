@@ -1,0 +1,112 @@
+{
+  "$comment": "WORKED EXAMPLE for WP-V0.0 — see README.md. Every clip below has placeholder:true because no audio is attached. This file shows the manifest schema (manifest.schema.json) populated with realistic reference text, so a human curating the real corpus has a template for tone/length/tagging, not a blank form. DO NOT run the bench harness against this file expecting real numbers — fixtures/voice/wer.ts skips placeholder rows and will report an empty result set if every clip is a placeholder.",
+  "corpus_version": "0.0.0-example",
+  "notes": "Replace this file's role once real clips exist: keep the schema, delete the $comment, set placeholder:false per clip as audio is recorded and human-verified.",
+  "clips": [
+    {
+      "id": "proper-noun-01",
+      "audio_path": "audio/proper-noun-01.wav",
+      "reference_text": "Can you ping Siobhan about the Kubernetes rollout before Thursday's standup",
+      "language": "en-US",
+      "hard_slice_tags": ["proper-noun"],
+      "bias_terms": [
+        { "term": "Siobhan", "kind": "person-name" },
+        { "term": "Kubernetes", "kind": "proper-noun" }
+      ],
+      "duration_s": 4.8,
+      "placeholder": true,
+      "notes": "'Siobhan' is the canonical hard case for phonetic mismatch — /ʃɪˈvɔːn/ has no orthographic relationship to its sound. This is exactly the bias-term-mismatch scenario SPEC 3.3 calls out."
+    },
+    {
+      "id": "code-identifier-01",
+      "audio_path": "audio/code-identifier-01.wav",
+      "reference_text": "Set the env var DATABASE_URL to postgres colon slash slash localhost five four three two slash myapp underscore dev",
+      "language": "en-US",
+      "hard_slice_tags": ["code-identifier"],
+      "bias_terms": [
+        { "term": "DATABASE_URL", "kind": "code-identifier" },
+        { "term": "postgres://localhost:5432/myapp_dev", "kind": "code-identifier" }
+      ],
+      "duration_s": 6.1,
+      "placeholder": true,
+      "notes": "Deliberately dictated as spoken punctuation ('colon slash slash') rather than natural reading — tests literal bias-layer-2 substitution rules (SPEC 3.3 layer 2: 'cursor dot ai' -> 'cursor.ai')."
+    },
+    {
+      "id": "code-identifier-02",
+      "audio_path": "audio/code-identifier-02.wav",
+      "reference_text": "The bug is in useEffect inside handleSubmit, we're calling setState after unmount",
+      "language": "en-US",
+      "hard_slice_tags": ["code-identifier"],
+      "bias_terms": [
+        { "term": "useEffect", "kind": "code-identifier" },
+        { "term": "handleSubmit", "kind": "code-identifier" },
+        { "term": "setState", "kind": "code-identifier" }
+      ],
+      "duration_s": 5.3,
+      "placeholder": true,
+      "notes": "camelCase identifiers spoken as natural words ('use effect', 'handle submit') — tests whether bias correction recovers the coding-convention casing, an AppKind::Code scenario."
+    },
+    {
+      "id": "accented-en-01",
+      "audio_path": "audio/accented-en-01.wav",
+      "reference_text": "I think we should schedule the review for next Tuesday afternoon if that works for everyone",
+      "language": "en-IN",
+      "hard_slice_tags": ["accented-en"],
+      "bias_terms": [],
+      "speaker_accent": "en-IN",
+      "duration_s": 5.9,
+      "placeholder": true,
+      "notes": "No bias terms on purpose — isolates raw acoustic-model accent robustness from the bias pipeline's effect. Pair with accented-en-02 (same speaker, WITH bias terms) to separate the two variables."
+    },
+    {
+      "id": "accented-en-02",
+      "audio_path": "audio/accented-en-02.wav",
+      "reference_text": "Please loop in Nguyen and Xiaoyu before we merge the pull request into main",
+      "language": "en-IN",
+      "hard_slice_tags": ["accented-en", "proper-noun"],
+      "bias_terms": [
+        { "term": "Nguyen", "kind": "person-name" },
+        { "term": "Xiaoyu", "kind": "person-name" }
+      ],
+      "speaker_accent": "en-IN",
+      "duration_s": 5.2,
+      "placeholder": true,
+      "notes": "Same speaker/accent as accented-en-01, but stacks a second hard slice (proper-noun) — this intersection is where SPEC §7 expects local ASR to hurt most."
+    },
+    {
+      "id": "whispered-01",
+      "audio_path": "audio/whispered-01.wav",
+      "reference_text": "Don't wake the baby, tell them the meeting moved to four thirty",
+      "language": "en-US",
+      "hard_slice_tags": ["whispered"],
+      "bias_terms": [],
+      "duration_s": 4.4,
+      "placeholder": true,
+      "notes": "Whispered speech lacks fundamental frequency (F0) entirely, not just low volume — a naive gain-normalization test fixture would not exercise the same failure mode. Real recording must be an actual whisper, not a quiet normal-voice take."
+    },
+    {
+      "id": "whispered-02",
+      "audio_path": "audio/whispered-02.wav",
+      "reference_text": "The password is on the sticky note under the Anthropic mug",
+      "language": "en-US",
+      "hard_slice_tags": ["whispered", "proper-noun"],
+      "bias_terms": [
+        { "term": "Anthropic", "kind": "proper-noun" }
+      ],
+      "duration_s": 3.7,
+      "placeholder": true,
+      "notes": "Whispered + proper-noun stack. Also a good secure-context adjacent example for the commands-side fixtures (dictation content near a password mention, not a command — kept here purely as an ASR hard case)."
+    },
+    {
+      "id": "baseline-nobias-01",
+      "audio_path": "audio/baseline-nobias-01.wav",
+      "reference_text": "Thanks for sending that over, I'll take a look this afternoon and get back to you tomorrow",
+      "language": "en-US",
+      "hard_slice_tags": [],
+      "bias_terms": [],
+      "duration_s": 5.6,
+      "placeholder": true,
+      "notes": "Plain casual-prose control clip — no hard-slice tags, no bias terms. Belongs in the corpus so the run matrix has a general-traffic WER number alongside the hard-slice numbers (SPEC §7: 'general-traffic WER will look fine and hide this')."
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+[package]
+name = "voice-asr-whisper"
+edition.workspace = true
+version.workspace = true
+license.workspace = true
+publish.workspace = true
+description = "Real LocalAsr backend for voice-core, backed by whisper.cpp via whisper-rs. Batch (not streaming) decode on finalize() -- the correct fit for push-to-talk, where key-up IS the endpoint (SPEC.md sec 3.1). Also owns ggml model download/cache (HuggingFace) under the platform data dir."
+
+[lints]
+workspace = true
+
+[dependencies]
+voice-core = { path = "../voice-core" }
+dirs = "6"
+ureq = { version = "3", default-features = true }
+anyhow = "1"
+# SHA-256 integrity check on downloaded model files (see model.rs's module
+# doc). MIT OR Apache-2.0, pure Rust, no new transitive non-permissive deps.
+sha2 = "0.10"
+
+# Apple Silicon: whisper-rs exposes Metal acceleration as the `metal`
+# Cargo feature (which whisper-rs-sys turns into a whisper.cpp GGML_METAL
+# build, and whisper-rs's own `WhisperContextParameters::use_gpu` defaults
+# to `cfg!(feature = "_gpu")` -- i.e. on automatically once `metal` is on).
+# Scoped to `aarch64-apple-darwin` specifically (not `cfg(target_os =
+# "macos")` generally) so an Intel Mac build never attempts a Metal link.
+# Every other target gets the plain CPU build (also selectable here via the
+# opt-in `metal` feature below). Verified on this box: `whisper_backend_init_gpu:
+# using Metal backend` / `picking default device: Apple M1 Max` in the real
+# run's stderr, and a ~2 min clip transcribing in ~2s wall time.
+#
+# Pinned to 0.15.1, not the newer 0.16.0: whisper-rs 0.16.0 pulls in
+# whisper-rs-sys 0.15.0, which declares `rust-version = "1.88.0"` -- newer
+# than this box's `rustc 1.86.0` (verified: 0.16.0 fails to build here with
+# exactly that MSRV error). 0.15.1 pulls in whisper-rs-sys ^0.14, which
+# declares no MSRV and builds clean.
+# The `LocalAsr` surface this crate uses (`WhisperContext`, `WhisperState`,
+# `FullParams`, per-token `token_probability()`) is unchanged between the
+# two versions.
+[target.'cfg(all(target_os = "macos", target_arch = "aarch64"))'.dependencies]
+whisper-rs = { version = "=0.15.1", default-features = false, features = ["metal"] }
+
+[target.'cfg(not(all(target_os = "macos", target_arch = "aarch64")))'.dependencies]
+whisper-rs = { version = "=0.15.1", default-features = false }
+
+[dev-dependencies]
+hound = "3.5"
+
+[features]
+# On by default only via the target-specific dependency block above; this
+# named feature exists so a non-Apple-Silicon build (or one where the Metal
+# toolchain is unavailable) can still opt in explicitly with
+# `--features metal`, and so downstream crates can query for it with
+# `cfg(feature = "metal")`.
+metal = ["whisper-rs/metal"]
+
+[[example]]
+name = "transcribe_fixture"
+path = "examples/transcribe_fixture.rs"

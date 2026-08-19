@@ -1,0 +1,52 @@
+[package]
+name = "voice-cli"
+edition.workspace = true
+version.workspace = true
+license.workspace = true
+publish.workspace = true
+description = "textify-voice: the MVP CLI binary. Wires voice-audio (capture/decode) -> voice-asr-whisper (real LocalAsr) -> voice-core (bias layer 2 + normalizer + insertion policy) into a real, runnable dictation pipeline, plus a dry-run command-spine demo over voice-intent + voice-act."
+
+[lints]
+workspace = true
+
+[[bin]]
+name = "textify-voice"
+path = "src/main.rs"
+
+[dependencies]
+voice-core = { path = "../voice-core" }
+voice-audio = { version = "0.1.0", path = "../voice-audio" }
+voice-asr-whisper = { path = "../voice-asr-whisper" }
+voice-context = { path = "../voice-context" }
+voice-intent = { path = "../voice-intent" }
+voice-act = { path = "../voice-act" }
+
+clap = { version = "4", features = ["derive"] }
+anyhow = "1"
+arboard = { version = "3", default-features = false }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+hound = "3.5"
+libc = "0.2.189"
+dirs = "6.0.0"
+# ed25519 verification for `update.rs`'s update-payload signature check --
+# the one piece of that module with no safe substitute (see its own doc
+# comment: Apple's system openssl/LibreSSL 3.3.6 cannot verify ed25519 at
+# all). Already resolved in this workspace's Cargo.lock at 0.17.14
+# (pulled in transitively via ureq's rustls/_ring feature chain), so this
+# adds zero new transitive dependencies and moves no version.
+ring = "0.17"
+
+[target.'cfg(target_os = "macos")'.dependencies]
+objc2-core-graphics = "0.3"
+objc2-core-foundation = "0.3"
+objc2-app-kit = "0.3.2"
+objc2-foundation = "0.3.2"
+objc2 = "0.6.4"
+objc2-quartz-core = "0.3.2"
+# SMAppService (ServiceManagement.framework) for src/login_item.rs's
+# launch-at-login. Not yet wired into main.rs (that's a settings-toggle
+# UI, a separate unit) -- present so login_item.rs's real dependency is
+# resolvable and buildable ahead of that wiring.
+objc2-service-management = "0.3.2"
+objc2-application-services = "0.3.2"

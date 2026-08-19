@@ -1,0 +1,496 @@
+{
+  "corpus_version": "librispeech-test-clean-49clips-v1",
+  "notes": "Open-licensed general-English regression slice, fetched by fetch-open-corpus.py from LibriSpeech test-clean (CC-BY 4.0, openslr.org/12). NOT a substitute for the recorded hard-slice corpus: this is clean read audiobook prose, it carries no hard_slice_tags, and LibriSpeech is very likely inside Whisper's training data, so a good score here means 'not broken' rather than 'accurate for a user'. Clips whose reference spells out numbers are excluded \u2014 our normalizer emits digits and wer.ts does not reconcile the two, so those score a formatting disagreement as an error.",
+  "clips": [
+    {
+      "id": "ls-1089-134686-0000",
+      "audio_path": "audio-open/ls-1089-134686-0000.wav",
+      "reference_text": "HE HOPED THERE WOULD BE STEW FOR DINNER TURNIPS AND CARROTS AND BRUISED POTATOES AND FAT MUTTON PIECES TO BE LADLED OUT IN THICK PEPPERED FLOUR FATTENED SAUCE",
+      "language": "en-US",
+      "hard_slice_tags": [],
+      "bias_terms": [],
+      "duration_s": 10.44,
+      "placeholder": false
+    },
+    {
+      "id": "ls-1089-134691-0002",
+      "audio_path": "audio-open/ls-1089-134691-0002.wav",
+      "reference_text": "HE SET OFF ABRUPTLY FOR THE BULL WALKING RAPIDLY LEST HIS FATHER'S SHRILL WHISTLE MIGHT CALL HIM BACK AND IN A FEW MOMENTS HE HAD ROUNDED THE CURVE AT THE POLICE BARRACK AND WAS SAFE",
+      "language": "en-US",
+      "hard_slice_tags": [],
+      "bias_terms": [],
+      "duration_s": 11.6,
+      "placeholder": false
+    },
+    {
+      "id": "ls-1188-133604-0022",
+      "audio_path": "audio-open/ls-1188-133604-0022.wav",
+      "reference_text": "YOU MUST LOOK AT HIM IN THE FACE FIGHT HIM CONQUER HIM WITH WHAT SCATHE YOU MAY YOU NEED NOT THINK TO KEEP OUT OF THE WAY OF HIM",
+      "language": "en-US",
+      "hard_slice_tags": [],
+      "bias_terms": [],
+      "duration_s": 9.63,
+      "placeholder": false
+    },
+    {
+      "id": "ls-121-127105-0034",
+      "audio_path": "audio-open/ls-121-127105-0034.wav",
+      "reference_text": "IT SOUNDED DULL IT SOUNDED STRANGE AND ALL THE MORE SO BECAUSE OF HIS MAIN CONDITION WHICH WAS",
+      "language": "en-US",
+      "hard_slice_tags": [],
+      "bias_terms": [],
+      "duration_s": 7.41,
+      "placeholder": false
+    },
+    {
+      "id": "ls-1284-1180-0000",
+      "audio_path": "audio-open/ls-1284-1180-0000.wav",
+      "reference_text": "HE WORE BLUE SILK STOCKINGS BLUE KNEE PANTS WITH GOLD BUCKLES A BLUE RUFFLED WAIST AND A JACKET OF BRIGHT BLUE BRAIDED WITH GOLD",
+      "language": "en-US",
+      "hard_slice_tags": [],
+      "bias_terms": [],
+      "duration_s": 8.12,
+      "placeholder": false
+    },
+    {
+      "id": "ls-1284-1181-0010",
+      "audio_path": "audio-open/ls-1284-1181-0010.wav",
+      "reference_text": "THEIR CONTENTS HAD ALL BOILED AWAY LEAVING IN THE BOTTOM OF EACH KETTLE A FEW GRAINS OF FINE WHITE POWDER",
+      "language": "en-US",
+      "hard_slice_tags": [],
+      "bias_terms": [],
+      "duration_s": 6.43,
+      "placeholder": false
+    },
+    {
+      "id": "ls-1320-122617-0005",
+      "audio_path": "audio-open/ls-1320-122617-0005.wav",
+      "reference_text": "THE BEAR SHOOK HIS SHAGGY SIDES AND THEN A WELL KNOWN VOICE REPLIED",
+      "language": "en-US",
+      "hard_slice_tags": [],
+      "bias_terms": [],
+      "duration_s": 4.4,
+      "placeholder": false
+    },
+    {
+      "id": "ls-1580-141083-0009",
+      "audio_path": "audio-open/ls-1580-141083-0009.wav",
+      "reference_text": "THE ALTERNATIVE WAS THAT SOMEONE PASSING HAD OBSERVED THE KEY IN THE DOOR HAD KNOWN THAT I WAS OUT AND HAD ENTERED TO LOOK AT THE PAPERS",
+      "language": "en-US",
+      "hard_slice_tags": [],
+      "bias_terms": [],
+      "duration_s": 7.04,
+      "placeholder": false
+    },
+    {
+      "id": "ls-1580-141083-0053",
+      "audio_path": "audio-open/ls-1580-141083-0053.wav",
+      "reference_text": "YOU HAVEN'T SEEN ANY OF THEM NO SIR",
+      "language": "en-US",
+      "hard_slice_tags": [],
+      "bias_terms": [],
+      "duration_s": 4.01,
+      "placeholder": false
+    },
+    {
+      "id": "ls-1995-1836-0005",
+      "audio_path": "audio-open/ls-1995-1836-0005.wav",
+      "reference_text": "MISSUS GREY HAD MET SOUTHERNERS BEFORE BUT NOT INTIMATELY AND SHE ALWAYS HAD IN MIND VIVIDLY THEIR CRUELTY TO POOR NEGROES A SUBJECT SHE MADE A POINT OF INTRODUCING FORTHWITH",
+      "language": "en-US",
+      "hard_slice_tags": [],
+      "bias_terms": [],
+      "duration_s": 10.9,
+      "placeholder": false
+    },
+    {
+      "id": "ls-2300-131720-0027",
+      "audio_path": "audio-open/ls-2300-131720-0027.wav",
+      "reference_text": "EDISON HELD THAT THE ELECTRICITY SOLD MUST BE MEASURED JUST LIKE GAS OR WATER AND HE PROCEEDED TO DEVELOP A METER",
+      "language": "en-US",
+      "hard_slice_tags": [],
+      "bias_terms": [],
+      "duration_s": 8.62,
+      "placeholder": false
+    },
+    {
+      "id": "ls-237-134493-0006",
+      "audio_path": "audio-open/ls-237-134493-0006.wav",
+      "reference_text": "THAT'S NOT MUCH OF A JOB FOR AN ATHLETE HERE I'VE BEEN TO TOWN AND BACK",
+      "language": "en-US",
+      "hard_slice_tags": [],
+      "bias_terms": [],
+      "duration_s": 4.39,
+      "placeholder": false
+    },
+    {
+      "id": "ls-237-134500-0026",
+      "audio_path": "audio-open/ls-237-134500-0026.wav",
+      "reference_text": "SURELY YOU ARE NOT THINKING OF GOING OFF THERE",
+      "language": "en-US",
+      "hard_slice_tags": [],
+      "bias_terms": [],
+      "duration_s": 3.05,
+      "placeholder": false
+    },
+    {
+      "id": "ls-260-123286-0025",
+      "audio_path": "audio-open/ls-260-123286-0025.wav",
+      "reference_text": "FLIGHT WAS OUT OF THE QUESTION NOW THE REPTILES ROSE THEY WHEELED AROUND OUR LITTLE RAFT WITH A RAPIDITY GREATER THAN THAT OF EXPRESS TRAINS",
+      "language": "en-US",
+      "hard_slice_tags": [],
+      "bias_terms": [],
+      "duration_s": 9.21,
+      "placeholder": false
+    },
+    {
+      "id": "ls-260-123440-0005",
+      "audio_path": "audio-open/ls-260-123440-0005.wav",
+      "reference_text": "AND YESTERDAY THINGS WENT ON JUST AS USUAL",
+      "language": "en-US",
+      "hard_slice_tags": [],
+      "bias_terms": [],
+      "duration_s": 3.1,
+      "placeholder": false
+    },
+    {
+      "id": "ls-2830-3980-0012",
+      "audio_path": "audio-open/ls-2830-3980-0012.wav",
+      "reference_text": "THE MOST THEY COULD CLAIM IS THAT THEY WERE SENT BY OTHERS",
+      "language": "en-US",
+      "hard_slice_tags": [],
+      "bias_terms": [],
+      "duration_s": 3.42,
+      "placeholder": false
+    },
+    {
+      "id": "ls-2830-3980-0052",
+      "audio_path": "audio-open/ls-2830-3980-0052.wav",
+      "reference_text": "WE ARE TO HEAR CHRIST WHO HAS BEEN APPOINTED BY THE FATHER AS OUR DIVINE TEACHER",
+      "language": "en-US",
+      "hard_slice_tags": [],
+      "bias_terms": [],
+      "duration_s": 4.88,
+      "placeholder": false
+    },
+    {
+      "id": "ls-2961-960-0014",
+      "audio_path": "audio-open/ls-2961-960-0014.wav",
+      "reference_text": "THE IDEAS ALSO REMAIN BUT THEY HAVE BECOME TYPES IN NATURE FORMS OF MEN ANIMALS BIRDS FISHES",
+      "language": "en-US",
+      "hard_slice_tags": [],
+      "bias_terms": [],
+      "duration_s": 8.78,
+      "placeholder": false
+    },
+    {
+      "id": "ls-3570-5694-0008",
+      "audio_path": "audio-open/ls-3570-5694-0008.wav",
+      "reference_text": "THE CONSUMPTION OF LUXURIES IN THE TRUE SENSE IS A CONSUMPTION DIRECTED TO THE COMFORT OF THE CONSUMER HIMSELF AND IS THEREFORE A MARK OF THE MASTER",
+      "language": "en-US",
+      "hard_slice_tags": [],
+      "bias_terms": [],
+      "duration_s": 9.49,
+      "placeholder": false
+    },
+    {
+      "id": "ls-3570-5696-0010",
+      "audio_path": "audio-open/ls-3570-5696-0010.wav",
+      "reference_text": "AN ARTICLE MAY BE USEFUL AND WASTEFUL BOTH AND ITS UTILITY TO THE CONSUMER MAY BE MADE UP OF USE AND WASTE IN THE MOST VARYING PROPORTIONS",
+      "language": "en-US",
+      "hard_slice_tags": [],
+      "bias_terms": [],
+      "duration_s": 7.57,
+      "placeholder": false
+    },
+    {
+      "id": "ls-3729-6852-0039",
+      "audio_path": "audio-open/ls-3729-6852-0039.wav",
+      "reference_text": "HE HIMSELF RECITED THE SAME PASSAGE IN FRENCH AND POLITELY POINTED OUT THE PARTS IN WHICH HE THOUGHT THAT I HAD IMPROVED ON THE ORIGINAL",
+      "language": "en-US",
+      "hard_slice_tags": [],
+      "bias_terms": [],
+      "duration_s": 8.82,
+      "placeholder": false
+    },
+    {
+      "id": "ls-4446-2271-0001",
+      "audio_path": "audio-open/ls-4446-2271-0001.wav",
+      "reference_text": "HE HAD PRECONCEIVED IDEAS ABOUT EVERYTHING AND HIS IDEA ABOUT AMERICANS WAS THAT THEY SHOULD BE ENGINEERS OR MECHANICS",
+      "language": "en-US",
+      "hard_slice_tags": [],
+      "bias_terms": [],
+      "duration_s": 6.35,
+      "placeholder": false
+    },
+    {
+      "id": "ls-4446-2273-0021",
+      "audio_path": "audio-open/ls-4446-2273-0021.wav",
+      "reference_text": "WHAT SHE WANTED FROM US WAS NEITHER OUR FLOWERS NOR OUR FRANCS BUT JUST OUR YOUTH",
+      "language": "en-US",
+      "hard_slice_tags": [],
+      "bias_terms": [],
+      "duration_s": 5.25,
+      "placeholder": false
+    },
+    {
+      "id": "ls-4446-2275-0023",
+      "audio_path": "audio-open/ls-4446-2275-0023.wav",
+      "reference_text": "ALEXANDER GROANED I MEANT TO BUT SOMEHOW I COULDN'T",
+      "language": "en-US",
+      "hard_slice_tags": [],
+      "bias_terms": [],
+      "duration_s": 3.81,
+      "placeholder": false
+    },
+    {
+      "id": "ls-4507-16021-0022",
+      "audio_path": "audio-open/ls-4507-16021-0022.wav",
+      "reference_text": "THERE IS THE SLANG OF THE AFFECTED LADY AS WELL AS OF THE PRECIEUSES",
+      "language": "en-US",
+      "hard_slice_tags": [],
+      "bias_terms": [],
+      "duration_s": 6.2,
+      "placeholder": false
+    },
+    {
+      "id": "ls-4970-29093-0007",
+      "audio_path": "audio-open/ls-4970-29093-0007.wav",
+      "reference_text": "IT IS SUCH A NOBLE AMBITION THAT IT IS A PITY IT HAS USUALLY SUCH A SHALLOW FOUNDATION",
+      "language": "en-US",
+      "hard_slice_tags": [],
+      "bias_terms": [],
+      "duration_s": 7.0,
+      "placeholder": false
+    },
+    {
+      "id": "ls-4970-29095-0027",
+      "audio_path": "audio-open/ls-4970-29095-0027.wav",
+      "reference_text": "IT'S SUCH A CRUSH AT THE YEARLY MEETING AT ARCH STREET AND THEN THERE'S THE ROW OF SLEEK LOOKING YOUNG MEN WHO LINE THE CURBSTONE AND STARE AT US AS WE COME OUT",
+      "language": "en-US",
+      "hard_slice_tags": [],
+      "bias_terms": [],
+      "duration_s": 9.79,
+      "placeholder": false
+    },
+    {
+      "id": "ls-4992-41797-0007",
+      "audio_path": "audio-open/ls-4992-41797-0007.wav",
+      "reference_text": "HE GIVE UP HIS POSITION AND SHUT THE FAMILY UP IN THAT TOMB OF A HOUSE SO T HE COULD STUDY HIS BOOKS",
+      "language": "en-US",
+      "hard_slice_tags": [],
+      "bias_terms": [],
+      "duration_s": 6.91,
+      "placeholder": false
+    },
+    {
+      "id": "ls-5105-28233-0009",
+      "audio_path": "audio-open/ls-5105-28233-0009.wav",
+      "reference_text": "THE BOND OF UNION THUS EFFECTED COULD NEVER BE SEVERED AND ALTHOUGH BEN ZOOF'S ACHIEVEMENTS HAD FAIRLY EARNED HIM THE RIGHT OF RETIREMENT HE FIRMLY DECLINED ALL HONORS OR ANY PENSION THAT MIGHT PART HIM FROM HIS SUPERIOR OFFICER",
+      "language": "en-US",
+      "hard_slice_tags": [],
+      "bias_terms": [],
+      "duration_s": 14.6,
+      "placeholder": false
+    },
+    {
+      "id": "ls-5105-28241-0012",
+      "audio_path": "audio-open/ls-5105-28241-0012.wav",
+      "reference_text": "IS IT NOT IMPOSSIBLE HE MURMURED ALOUD THAT ANY CITY SHOULD DISAPPEAR SO COMPLETELY",
+      "language": "en-US",
+      "hard_slice_tags": [],
+      "bias_terms": [],
+      "duration_s": 6.78,
+      "placeholder": false
+    },
+    {
+      "id": "ls-5142-33396-0038",
+      "audio_path": "audio-open/ls-5142-33396-0038.wav",
+      "reference_text": "HE SHALL NOT LEAVE YOU DAY OR NIGHT WHETHER YOU ARE WORKING OR PLAYING OR SLEEPING",
+      "language": "en-US",
+      "hard_slice_tags": [],
+      "bias_terms": [],
+      "duration_s": 4.18,
+      "placeholder": false
+    },
+    {
+      "id": "ls-5683-32866-0009",
+      "audio_path": "audio-open/ls-5683-32866-0009.wav",
+      "reference_text": "I DON'T KNOW AND CAN'T SAY HOW YOU FINE GENTLEMEN DEFINE WICKEDNESS ONLY AS AN OBSCURE FEMALE I SPEAK ACCORDING TO MY LIGHTS AND HE IS GENERALLY THOUGHT THE WICKEDEST MAN IN THIS COUNTY",
+      "language": "en-US",
+      "hard_slice_tags": [],
+      "bias_terms": [],
+      "duration_s": 13.26,
+      "placeholder": false
+    },
+    {
+      "id": "ls-5683-32879-0016",
+      "audio_path": "audio-open/ls-5683-32879-0016.wav",
+      "reference_text": "AND THE WAN ORACLE HAVING SPOKEN SHE SATE DOWN IN THE SAME SORT OF ABSTRACTION AGAIN BESIDE DORCAS AND SHE LOOKED FULL IN HER COUSIN'S EYES",
+      "language": "en-US",
+      "hard_slice_tags": [],
+      "bias_terms": [],
+      "duration_s": 10.19,
+      "placeholder": false
+    },
+    {
+      "id": "ls-672-122797-0004",
+      "audio_path": "audio-open/ls-672-122797-0004.wav",
+      "reference_text": "IN WINTER WHEN THE SNOW LAY GLITTERING ON THE GROUND A HARE WOULD OFTEN COME LEAPING ALONG AND JUMP RIGHT OVER THE LITTLE TREE",
+      "language": "en-US",
+      "hard_slice_tags": [],
+      "bias_terms": [],
+      "duration_s": 10.25,
+      "placeholder": false
+    },
+    {
+      "id": "ls-672-122797-0044",
+      "audio_path": "audio-open/ls-672-122797-0044.wav",
+      "reference_text": "AND HE LEANED AGAINST THE WALL LOST IN REVERIE",
+      "language": "en-US",
+      "hard_slice_tags": [],
+      "bias_terms": [],
+      "duration_s": 3.74,
+      "placeholder": false
+    },
+    {
+      "id": "ls-6829-68769-0011",
+      "audio_path": "audio-open/ls-6829-68769-0011.wav",
+      "reference_text": "I'M RUNNING FOR REPRESENTATIVE ON THE REPUBLICAN TICKET SAID KENNETH QUIETLY",
+      "language": "en-US",
+      "hard_slice_tags": [],
+      "bias_terms": [],
+      "duration_s": 4.68,
+      "placeholder": false
+    },
+    {
+      "id": "ls-6829-68769-0052",
+      "audio_path": "audio-open/ls-6829-68769-0052.wav",
+      "reference_text": "HE MIGHT HAVE HAD THAT FORGED CHECK FOR THE FACE OF IT IF HE'D BEEN SHARP",
+      "language": "en-US",
+      "hard_slice_tags": [],
+      "bias_terms": [],
+      "duration_s": 4.6,
+      "placeholder": false
+    },
+    {
+      "id": "ls-6930-75918-0006",
+      "audio_path": "audio-open/ls-6930-75918-0006.wav",
+      "reference_text": "THIS HAS INDEED BEEN A HARASSING DAY CONTINUED THE YOUNG MAN HIS EYES FIXED UPON HIS FRIEND",
+      "language": "en-US",
+      "hard_slice_tags": [],
+      "bias_terms": [],
+      "duration_s": 5.85,
+      "placeholder": false
+    },
+    {
+      "id": "ls-6930-76324-0025",
+      "audio_path": "audio-open/ls-6930-76324-0025.wav",
+      "reference_text": "WHY IT'S GOLIATH AS USUAL THEY BOTH CRIED PEERING IN",
+      "language": "en-US",
+      "hard_slice_tags": [],
+      "bias_terms": [],
+      "duration_s": 4.12,
+      "placeholder": false
+    },
+    {
+      "id": "ls-7021-79730-0008",
+      "audio_path": "audio-open/ls-7021-79730-0008.wav",
+      "reference_text": "BUT THIS LAST SUPPOSITION IS ALMOST ALWAYS UNNECESSARY FOR IF MARY HAS BEEN HABITUALLY MANAGED ON THIS PRINCIPLE SHE WILL NOT MAKE ANY TROUBLE",
+      "language": "en-US",
+      "hard_slice_tags": [],
+      "bias_terms": [],
+      "duration_s": 11.77,
+      "placeholder": false
+    },
+    {
+      "id": "ls-7127-75947-0003",
+      "audio_path": "audio-open/ls-7127-75947-0003.wav",
+      "reference_text": "YES THE CHARACTER WHICH YOUR ROYAL HIGHNESS ASSUMED IS IN PERFECT HARMONY WITH YOUR OWN",
+      "language": "en-US",
+      "hard_slice_tags": [],
+      "bias_terms": [],
+      "duration_s": 5.98,
+      "placeholder": false
+    },
+    {
+      "id": "ls-7176-88083-0004",
+      "audio_path": "audio-open/ls-7176-88083-0004.wav",
+      "reference_text": "BUT SUDDENLY STRAIGHT AND SWIFT AS A DIVING CORMORANT HE SHOT DOWN INTO THE TORRENT AND DISAPPEARED BENEATH THE SURFACE",
+      "language": "en-US",
+      "hard_slice_tags": [],
+      "bias_terms": [],
+      "duration_s": 7.5,
+      "placeholder": false
+    },
+    {
+      "id": "ls-7176-92135-0016",
+      "audio_path": "audio-open/ls-7176-92135-0016.wav",
+      "reference_text": "THIS WOULD BE AN EASY WAY OF DOING IT BUT IT WOULD NOT BE THE BEST WAY FOR THE REASON THAT IT IS TOO EASY TO CALL ATTENTION TO ITSELF",
+      "language": "en-US",
+      "hard_slice_tags": [],
+      "bias_terms": [],
+      "duration_s": 7.54,
+      "placeholder": false
+    },
+    {
+      "id": "ls-7729-102255-0019",
+      "audio_path": "audio-open/ls-7729-102255-0019.wav",
+      "reference_text": "TO EMBARRASS THIS DAMAGING EXPOSURE JUDGE LECOMPTE ISSUED A WRIT AGAINST THE EX GOVERNOR ON A FRIVOLOUS CHARGE OF CONTEMPT",
+      "language": "en-US",
+      "hard_slice_tags": [],
+      "bias_terms": [],
+      "duration_s": 8.93,
+      "placeholder": false
+    },
+    {
+      "id": "ls-8224-274384-0002",
+      "audio_path": "audio-open/ls-8224-274384-0002.wav",
+      "reference_text": "THEY INFORMED THE ENGLISH PARLIAMENT OF THIS UNEXPECTED INCIDENT AND ASSURED THEM THAT THEY HAD ENTERED INTO NO PRIVATE TREATY WITH THE KING",
+      "language": "en-US",
+      "hard_slice_tags": [],
+      "bias_terms": [],
+      "duration_s": 9.81,
+      "placeholder": false
+    },
+    {
+      "id": "ls-8230-279154-0028",
+      "audio_path": "audio-open/ls-8230-279154-0028.wav",
+      "reference_text": "I CAN SET TO WORK NOW TO REMEMBER THINGS I NEVER REMEMBERED BEFORE SUCH AS WHAT I HAD TO EAT FOR BREAKFAST THIS MORNING AND IT CAN HARDLY BE WHOLLY HABIT THAT ENABLES ME TO DO THIS",
+      "language": "en-US",
+      "hard_slice_tags": [],
+      "bias_terms": [],
+      "duration_s": 11.56,
+      "placeholder": false
+    },
+    {
+      "id": "ls-8455-210777-0028",
+      "audio_path": "audio-open/ls-8455-210777-0028.wav",
+      "reference_text": "JACK WOULD BECOME EVA'S HAPPY HUSBAND AND WOULD REMAIN AMIDST THE HURRIED DUTIES OF THE EAGER WORLD",
+      "language": "en-US",
+      "hard_slice_tags": [],
+      "bias_terms": [],
+      "duration_s": 7.74,
+      "placeholder": false
+    },
+    {
+      "id": "ls-8463-287645-0000",
+      "audio_path": "audio-open/ls-8463-287645-0000.wav",
+      "reference_text": "THIS WAS WHAT DID THE MISCHIEF SO FAR AS THE RUNNING AWAY WAS CONCERNED",
+      "language": "en-US",
+      "hard_slice_tags": [],
+      "bias_terms": [],
+      "duration_s": 4.73,
+      "placeholder": false
+    },
+    {
+      "id": "ls-8555-284447-0022",
+      "audio_path": "audio-open/ls-8555-284447-0022.wav",
+      "reference_text": "I HAD A NOTION IT WAS YOU MATE AS SAVED ME FROM THE KNIFE",
+      "language": "en-US",
+      "hard_slice_tags": [],
+      "bias_terms": [],
+      "duration_s": 3.56,
+      "placeholder": false
+    }
+  ]
+}

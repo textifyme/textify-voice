@@ -1,0 +1,90 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://textify.dev/fixtures/voice/manifest.schema.json",
+  "title": "Voice eval corpus manifest",
+  "description": "SPEC (docs/voice/SPEC.md) WP-V0.0. One entry per eval clip. Manifests are consumed by fixtures/voice/wer.ts to compute WER + hard-slice term recall. Every clip needs a human-verified reference transcript before it counts toward the §7 kill criteria — machine-generated 'references' are not evidence.",
+  "type": "object",
+  "required": ["corpus_version", "clips"],
+  "additionalProperties": false,
+  "properties": {
+    "corpus_version": {
+      "type": "string",
+      "description": "Bump on any change to reference text or clip set so bench runs can cite an exact corpus version in the go/no-go memo."
+    },
+    "notes": { "type": "string" },
+    "clips": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/clip" }
+    }
+  },
+  "$defs": {
+    "hard_slice_tag": {
+      "type": "string",
+      "description": "SPEC §7 / WP-V0.0 hard-slice categories — the eval slice that matters, because general-traffic WER hides regressions here.",
+      "enum": ["proper-noun", "code-identifier", "accented-en", "whispered"]
+    },
+    "bias_term": {
+      "type": "object",
+      "description": "A term the BiasContext (SPEC §3.3) would have carried into the utterance — used to score per-hard-slice term recall, i.e. did the engine get THIS specific word right, not just overall WER.",
+      "required": ["term"],
+      "additionalProperties": false,
+      "properties": {
+        "term": { "type": "string", "description": "Canonical form as it should appear in the hypothesis, e.g. 'Postgres', 'cursor.ai', 'Kubernetes'." },
+        "kind": {
+          "type": "string",
+          "enum": ["proper-noun", "code-identifier", "app-name", "person-name", "other"]
+        }
+      }
+    },
+    "clip": {
+      "type": "object",
+      "required": ["id", "audio_path", "reference_text", "language", "hard_slice_tags", "bias_terms", "placeholder"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9-]*$",
+          "description": "Stable slug. Referenced from bench run logs and the §7 go/no-go memo — do not renumber once real audio is attached."
+        },
+        "audio_path": {
+          "type": "string",
+          "description": "Path relative to fixtures/voice/, e.g. 'audio/proper-noun-01.wav'. 16 kHz mono PCM WAV to match LocalAsr::feed_pcm (SPEC 3.3) directly, no resample step in the bench loop. MUST NOT exist yet for placeholder:true entries — see README."
+        },
+        "reference_text": {
+          "type": "string",
+          "description": "Human-verified ground truth, unwrapped (one logical line). This is what WER is computed against — never an ASR draft, even a corrected one; transcribing your own reference from the model under test contaminates the eval."
+        },
+        "language": {
+          "type": "string",
+          "description": "BCP-47 tag, e.g. 'en-US', 'en-IN', 'es-ES'.",
+          "pattern": "^[a-z]{2,3}(-[A-Z]{2})?$"
+        },
+        "hard_slice_tags": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/hard_slice_tag" },
+          "description": "Zero or more. A clip can be both 'accented-en' and 'proper-noun' at once (that intersection is where local ASR is expected to hurt most)."
+        },
+        "bias_terms": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/bias_term" },
+          "description": "Terms simulating what BiasContext.terms would carry for this utterance. Empty array is valid for clips that test the NO-bias baseline (bias layers off) — see README run matrix."
+        },
+        "speaker_accent": {
+          "type": "string",
+          "description": "Free-text label for the 'accented-en' slice, e.g. 'en-IN', 'en-NG', 'en-DE (L2)'. Omit for non-accent clips."
+        },
+        "duration_s": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "description": "Clip duration in seconds. Required once real audio is attached; omit on placeholders."
+        },
+        "placeholder": {
+          "type": "boolean",
+          "description": "true = no audio file exists at audio_path; this entry is a WORKED EXAMPLE of the schema + reference-text style only, and must be excluded from any real bench run (fixtures/voice/wer.ts skips placeholder:true rows). Flip to false only after a human has recorded/verified the clip and the WAV is committed."
+        },
+        "notes": { "type": "string" }
+      }
+    }
+  }
+}

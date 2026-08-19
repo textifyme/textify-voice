@@ -1,0 +1,322 @@
+{
+  "$comment": "textify-voice bench record's prompt set (DECISIONS.md D2 / SPEC §7 / COMMANDS-SPEC C0.0). Reference text is the prompt text itself -- the whole point of a recording tool that SUPPLIES the prompt is that the reference transcript is known before the take, so there is no post-hoc human-transcription pass. Every sentence here is meant to be read aloud naturally, not lorem ipsum. 'kind: dictation' prompts feed the WP-V0.0 hard-slice corpus (fixtures/voice/manifest.json) directly. 'kind: command' and 'kind: adversarial' prompts are recorded through the exact same take/WAV/manifest pipeline (so their ASR transcripts can be scored too) but they are NOT a substitute for fixtures/commands/ -- command-intent classification (does command mode accept/reject correctly) is scored there, not by `bench score`, which only measures transcription word accuracy.",
+  "version": "1",
+  "prompts": [
+    {
+      "id": "proper-noun-01",
+      "kind": "dictation",
+      "text": "Please forward the Nairobi contract to Farrukh Otieno before you leave for lunch.",
+      "hard_slice_tags": ["proper-noun"],
+      "bias_terms": [{ "term": "Farrukh Otieno", "kind": "person-name" }],
+      "language": "en-US",
+      "notes": "Consonant-cluster surname with no reliable spelling-to-sound mapping -- the archetypal bias-term-mismatch trigger (SPEC 3.3)."
+    },
+    {
+      "id": "proper-noun-02",
+      "kind": "dictation",
+      "text": "Loop in Anneliese Vogt on the merger deck, she's covering for the usual lead this week.",
+      "hard_slice_tags": ["proper-noun"],
+      "bias_terms": [{ "term": "Anneliese Vogt", "kind": "person-name" }],
+      "language": "en-US"
+    },
+    {
+      "id": "proper-noun-03",
+      "kind": "dictation",
+      "text": "Book a table at Kessaku for six people this Friday night.",
+      "hard_slice_tags": ["proper-noun"],
+      "bias_terms": [{ "term": "Kessaku", "kind": "other" }],
+      "language": "en-US",
+      "notes": "Restaurant/venue name -- 'app-name'-adjacent but not an app, so tagged 'other' per the schema's bias_term.kind enum."
+    },
+    {
+      "id": "proper-noun-04",
+      "kind": "dictation",
+      "text": "Tell the team the Zephyrine rollout slipped to next sprint.",
+      "hard_slice_tags": ["proper-noun"],
+      "bias_terms": [{ "term": "Zephyrine", "kind": "proper-noun" }],
+      "language": "en-US"
+    },
+    {
+      "id": "proper-noun-05",
+      "kind": "dictation",
+      "text": "Can you introduce me to Oisin before the board meeting starts?",
+      "hard_slice_tags": ["proper-noun"],
+      "bias_terms": [{ "term": "Oisin", "kind": "person-name" }],
+      "language": "en-US",
+      "notes": "Irish given name -- orthography and pronunciation diverge sharply, same failure class as 'Siobhan' in manifest.example.json."
+    },
+    {
+      "id": "proper-noun-06",
+      "kind": "dictation",
+      "text": "The invoice needs to go to Accounts at Threadwell Logistics, not the old vendor.",
+      "hard_slice_tags": ["proper-noun"],
+      "bias_terms": [{ "term": "Threadwell Logistics", "kind": "other" }],
+      "language": "en-US"
+    },
+    {
+      "id": "code-identifier-01",
+      "kind": "dictation",
+      "text": "The crash only happens inside handleSubmit when useEffect fires twice.",
+      "hard_slice_tags": ["code-identifier"],
+      "bias_terms": [
+        { "term": "handleSubmit", "kind": "code-identifier" },
+        { "term": "useEffect", "kind": "code-identifier" }
+      ],
+      "language": "en-US",
+      "notes": "camelCase identifiers spoken as natural words -- tests whether bias correction recovers coding-convention casing (AppKind::Code)."
+    },
+    {
+      "id": "code-identifier-02",
+      "kind": "dictation",
+      "text": "Set the environment variable API underscore base underscore url to h t t p s colon slash slash api dot textify dot dev.",
+      "hard_slice_tags": ["code-identifier"],
+      "bias_terms": [
+        { "term": "API_BASE_URL", "kind": "code-identifier" },
+        { "term": "https://api.textify.dev", "kind": "code-identifier" }
+      ],
+      "language": "en-US",
+      "notes": "Dictated as literal spoken punctuation -- tests bias-layer-2 literal substitution rules (SPEC 3.3: 'cursor dot ai' -> 'cursor.ai')."
+    },
+    {
+      "id": "code-identifier-03",
+      "kind": "dictation",
+      "text": "Rename the getUserProfile function to fetchUserProfile across the whole repo.",
+      "hard_slice_tags": ["code-identifier"],
+      "bias_terms": [
+        { "term": "getUserProfile", "kind": "code-identifier" },
+        { "term": "fetchUserProfile", "kind": "code-identifier" }
+      ],
+      "language": "en-US"
+    },
+    {
+      "id": "code-identifier-04",
+      "kind": "dictation",
+      "text": "The bug is in parseManifestSchema, it throws on an empty bias underscore terms array.",
+      "hard_slice_tags": ["code-identifier"],
+      "bias_terms": [
+        { "term": "parseManifestSchema", "kind": "code-identifier" },
+        { "term": "bias_terms", "kind": "code-identifier" }
+      ],
+      "language": "en-US"
+    },
+    {
+      "id": "code-identifier-05",
+      "kind": "dictation",
+      "text": "Push the fix to the feature slash voice dash spine branch before you open the pull request.",
+      "hard_slice_tags": ["code-identifier"],
+      "bias_terms": [{ "term": "feature/voice-spine", "kind": "code-identifier" }],
+      "language": "en-US"
+    },
+    {
+      "id": "code-identifier-06",
+      "kind": "dictation",
+      "text": "Import BiasContext from voice dash core and pass it into normalize.",
+      "hard_slice_tags": ["code-identifier"],
+      "bias_terms": [
+        { "term": "BiasContext", "kind": "code-identifier" },
+        { "term": "voice-core", "kind": "code-identifier" },
+        { "term": "normalize", "kind": "code-identifier" }
+      ],
+      "language": "en-US"
+    },
+    {
+      "id": "accented-en-01",
+      "kind": "dictation",
+      "text": "I was thinking we could push the launch back a week if the numbers don't look right.",
+      "hard_slice_tags": ["accented-en"],
+      "bias_terms": [],
+      "language": "en-US",
+      "notes": "No bias terms on purpose -- isolates raw acoustic-model accent robustness from the bias pipeline. Record this with a non-US-English accent; the sentence text itself is deliberately plain. Pass --speaker-accent at record time."
+    },
+    {
+      "id": "accented-en-02",
+      "kind": "dictation",
+      "text": "Could you double check the invoice before it goes out to the client tomorrow?",
+      "hard_slice_tags": ["accented-en"],
+      "bias_terms": [],
+      "language": "en-US"
+    },
+    {
+      "id": "accented-en-03",
+      "kind": "dictation",
+      "text": "The forecast says rain all weekend, so maybe we move the picnic indoors.",
+      "hard_slice_tags": ["accented-en"],
+      "bias_terms": [],
+      "language": "en-US"
+    },
+    {
+      "id": "accented-en-04",
+      "kind": "dictation",
+      "text": "He mentioned the flight got delayed, so we should plan for a late arrival.",
+      "hard_slice_tags": ["accented-en"],
+      "bias_terms": [],
+      "language": "en-US"
+    },
+    {
+      "id": "accented-en-05",
+      "kind": "dictation",
+      "text": "Please loop in Zhi Wei and Amara before we merge the pull request into main.",
+      "hard_slice_tags": ["accented-en", "proper-noun"],
+      "bias_terms": [
+        { "term": "Zhi Wei", "kind": "person-name" },
+        { "term": "Amara", "kind": "person-name" }
+      ],
+      "language": "en-US",
+      "notes": "Stacks accented-en with proper-noun -- the intersection SPEC §7 expects local ASR to hurt most, same pairing pattern as accented-en-02 in manifest.example.json."
+    },
+    {
+      "id": "accented-en-06",
+      "kind": "dictation",
+      "text": "Let's regroup after lunch and figure out who's covering the afternoon shift.",
+      "hard_slice_tags": ["accented-en"],
+      "bias_terms": [],
+      "language": "en-US"
+    },
+    {
+      "id": "whispered-01",
+      "kind": "dictation",
+      "text": "Don't wake the dog, the delivery guy is right outside the door.",
+      "hard_slice_tags": ["whispered"],
+      "bias_terms": [],
+      "language": "en-US",
+      "direction": "Whisper this line -- no voiced tone at all, breath only. Not just quiet normal speech.",
+      "notes": "Whispered speech lacks fundamental frequency (F0) entirely -- a quiet normal-voice take does not reproduce the same acoustic failure mode."
+    },
+    {
+      "id": "whispered-02",
+      "kind": "dictation",
+      "text": "I left the spare key under the mat, just in case you lock yourself out.",
+      "hard_slice_tags": ["whispered"],
+      "bias_terms": [],
+      "language": "en-US",
+      "direction": "Whisper this line -- no voiced tone at all, breath only."
+    },
+    {
+      "id": "whispered-03",
+      "kind": "dictation",
+      "text": "The meeting got pushed to four thirty, nobody else knows yet.",
+      "hard_slice_tags": ["whispered"],
+      "bias_terms": [],
+      "language": "en-US",
+      "direction": "Whisper this line -- no voiced tone at all, breath only."
+    },
+    {
+      "id": "whispered-04",
+      "kind": "dictation",
+      "text": "The password's on the sticky note under the Textify mug.",
+      "hard_slice_tags": ["whispered", "proper-noun"],
+      "bias_terms": [{ "term": "Textify", "kind": "proper-noun" }],
+      "language": "en-US",
+      "direction": "Whisper this line -- no voiced tone at all, breath only.",
+      "notes": "Whispered + proper-noun stack, same pairing pattern as whispered-02 in manifest.example.json."
+    },
+    {
+      "id": "command-01",
+      "kind": "command",
+      "text": "Open Slack.",
+      "hard_slice_tags": [],
+      "bias_terms": [],
+      "language": "en-US",
+      "notes": "COMMANDS-SPEC C0.0 head command (app-launch verb). Recorded for ASR reference-text purposes; command-intent accept/reject is scored in fixtures/commands/, not here."
+    },
+    {
+      "id": "command-02",
+      "kind": "command",
+      "text": "Close this window.",
+      "hard_slice_tags": [],
+      "bias_terms": [],
+      "language": "en-US",
+      "notes": "COMMANDS-SPEC C0.0 head command (window-management verb)."
+    },
+    {
+      "id": "command-03",
+      "kind": "command",
+      "text": "Copy this to the clipboard.",
+      "hard_slice_tags": [],
+      "bias_terms": [],
+      "language": "en-US",
+      "notes": "COMMANDS-SPEC C0.0 head command (clipboard verb)."
+    },
+    {
+      "id": "command-04",
+      "kind": "command",
+      "text": "Undo that.",
+      "hard_slice_tags": [],
+      "bias_terms": [],
+      "language": "en-US",
+      "notes": "COMMANDS-SPEC C0.0 head command (meta/undo verb)."
+    },
+    {
+      "id": "command-05",
+      "kind": "command",
+      "text": "Switch to Chrome.",
+      "hard_slice_tags": [],
+      "bias_terms": [],
+      "language": "en-US",
+      "notes": "COMMANDS-SPEC C0.0 head command (app-switch verb, AppRef slot)."
+    },
+    {
+      "id": "command-06",
+      "kind": "command",
+      "text": "Take a screenshot.",
+      "hard_slice_tags": [],
+      "bias_terms": [],
+      "language": "en-US",
+      "notes": "COMMANDS-SPEC C0.0 head command (system verb)."
+    },
+    {
+      "id": "adversarial-01",
+      "kind": "adversarial",
+      "text": "I told him to open Slack before the standup, but he forgot.",
+      "hard_slice_tags": [],
+      "bias_terms": [],
+      "language": "en-US",
+      "notes": "COMMANDS-SPEC C0.0 dictation-lookalike-adversarial -- leading subject/verb clause ('I told him to') before the trigger verb, must reject at >=99% in command mode (COMMANDS-SPEC 241). Recorded here for ASR reference-text only."
+    },
+    {
+      "id": "adversarial-02",
+      "kind": "adversarial",
+      "text": "She said close the laptop before the battery drains completely.",
+      "hard_slice_tags": [],
+      "bias_terms": [],
+      "language": "en-US",
+      "notes": "COMMANDS-SPEC C0.0 dictation-lookalike-adversarial -- reported speech wrapping the trigger verb."
+    },
+    {
+      "id": "adversarial-03",
+      "kind": "adversarial",
+      "text": "Can you remind me to copy the file over to the shared drive tomorrow?",
+      "hard_slice_tags": [],
+      "bias_terms": [],
+      "language": "en-US",
+      "notes": "COMMANDS-SPEC C0.0 dictation-lookalike-adversarial -- a request ABOUT a future action, not the action itself."
+    },
+    {
+      "id": "adversarial-04",
+      "kind": "adversarial",
+      "text": "He kept saying undo that decision was a mistake, over and over.",
+      "hard_slice_tags": [],
+      "bias_terms": [],
+      "language": "en-US",
+      "notes": "COMMANDS-SPEC C0.0 dictation-lookalike-adversarial -- trigger phrase embedded mid-sentence as reported speech."
+    },
+    {
+      "id": "adversarial-05",
+      "kind": "adversarial",
+      "text": "We should switch to Chrome only if Safari keeps crashing on us.",
+      "hard_slice_tags": [],
+      "bias_terms": [],
+      "language": "en-US",
+      "notes": "COMMANDS-SPEC C0.0 dictation-lookalike-adversarial -- conditional clause, not an imperative."
+    },
+    {
+      "id": "adversarial-06",
+      "kind": "adversarial",
+      "text": "Someone asked me to take a screenshot of the error before closing the ticket.",
+      "hard_slice_tags": [],
+      "bias_terms": [],
+      "language": "en-US",
+      "notes": "COMMANDS-SPEC C0.0 dictation-lookalike-adversarial -- subject 'someone asked me to' precedes the trigger verb."
+    }
+  ]
+}

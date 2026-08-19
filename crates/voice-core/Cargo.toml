@@ -1,0 +1,14 @@
+[package]
+name = "voice-core"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish.workspace = true
+description = "Textify Voice hot path: capture ring buffer, endpointing, LocalAsr contract, bias pipeline layers 1-2, normalizer, format gate, insertion policy (SPEC.md sec 3.2-3.4). Pure/deterministic logic + in-memory mocks only; no native/IO deps in this phase."
+
+[lints]
+workspace = true
+
+[dependencies]
+
+[dev-dependencies]

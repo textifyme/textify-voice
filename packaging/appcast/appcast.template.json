@@ -1,0 +1,12 @@
+{
+  "items": [
+    {
+      "version": "0.2.0",
+      "url": "https://downloads.textify.me/voice/textify-voice-0.2.0.zip",
+      "signature": "REPLACE_WITH_128_HEX_CHAR_ED25519_SIGNATURE_FROM_SIGN_UPDATE_SH",
+      "length": 12345678,
+      "notes": "Fixed the six user-visible bugs found during the first hour of real use.",
+      "pub_date": "2026-08-18T00:00:00Z"
+    }
+  ]
+}

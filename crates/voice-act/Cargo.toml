@@ -1,0 +1,15 @@
+[package]
+name = "voice-act"
+edition.workspace = true
+version.workspace = true
+license.workspace = true
+publish.workspace = true
+
+# Intentionally dependency-free: this crate is pure logic (action registry,
+# tier gate, undo journal, telemetry shape) with no native/IO surface of its
+# own. All OS boundaries (AX click, window manager, shortcuts runner, ...)
+# are behind the `ActionExecutor` trait; this run ships in-memory mocks only.
+[dependencies]
+
+[lints]
+workspace = true

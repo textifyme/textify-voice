@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- CFBundleIdentifier is the TCC identity. macOS keys every granted
+	     permission (Microphone, Accessibility) to this string as embedded in
+	     the code signature, not to the app's file path or display name.
+	     Changing it is indistinguishable to the OS from installing a brand
+	     new app: the user has to re-grant Microphone and Accessibility from
+	     scratch, and any old grant under the previous identifier becomes an
+	     orphaned entry in System Settings. Do not change this string once
+	     real users have granted permissions under it. See packaging/README.md
+	     "Why CFBundleIdentifier is load-bearing". -->
+	<key>CFBundleIdentifier</key>
+	<string>__CFBUNDLE_IDENTIFIER__</string>
+
+	<key>CFBundleName</key>
+	<string>__CFBUNDLE_NAME__</string>
+
+	<key>CFBundleDisplayName</key>
+	<string>__CFBUNDLE_DISPLAY_NAME__</string>
+
+	<!-- Must exactly match the file placed at Contents/MacOS/. This is the
+	     same Mach-O binary as the `textify-voice` CLI -- one executable,
+	     two entry paths. See packaging/README.md "One binary, two faces". -->
+	<key>CFBundleExecutable</key>
+	<string>__CFBUNDLE_EXECUTABLE__</string>
+
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+
+	<key>CFBundleShortVersionString</key>
+	<string>__CFBUNDLE_SHORT_VERSION__</string>
+
+	<key>CFBundleVersion</key>
+	<string>__CFBUNDLE_VERSION__</string>
+
+	<!-- 11.0 (Big Sur), not an aspiration: this is the real floor the
+	     shipped code requires, derived from and enforced by
+	     crates/voice-cli/src/compat.rs's MIN_MACOS_VERSION constant (a
+	     runtime check refuses to run below it, since a missing selector on
+	     an older Mac is a crash, not a compile error -- LaunchServices
+	     itself only ever checks this key before first launch). If you
+	     change MIN_MACOS_VERSION, change this value to match; see that
+	     file's module doc for the full per-API reasoning, including why
+	     this is 11.0 and not the previously-unenforced 13.0. -->
+	<key>LSMinimumSystemVersion</key>
+	<string>11.0</string>
+
+	<!-- Resources/AppIcon.icns, rendered at build time by packaging/app-icon.swift.
+	     Named without the extension, which is what LaunchServices expects here. -->
+	<key>CFBundleIconFile</key>
+	<string>AppIcon</string>
+
+	<key>LSApplicationCategoryType</key>
+	<string>public.app-category.productivity</string>
+
+	<!-- Menu-bar agent: no Dock icon, no entry in Cmd+Tab / the app switcher,
+	     no menu bar of its own window chrome. This is what actually makes
+	     the double-clicked app "a menu-bar agent" rather than a regular
+	     windowed app; it is independent of, and in addition to, the
+	     NSApplicationActivationPolicy.Accessory call the agent code makes
+	     at runtime (belt + suspenders -- LSUIElement affects Dock/switcher
+	     visibility from the moment the process is launched, before any of
+	     its own code has run). -->
+	<key>LSUIElement</key>
+	<true/>
+
+	<!-- Required. Without this key, AVFoundation kills the process the
+	     instant it requests microphone access instead of showing the
+	     consent dialog -- there is no key for Accessibility (see README,
+	     "Why there's no Accessibility usage-description key"), but this one
+	     is mandatory. Written for the person clicking "Allow", not a lawyer:
+	     say what happens to their voice and where it goes. -->
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Textify Voice listens while you hold your dictation key so it can turn your speech into text and paste it wherever your cursor is. Your audio is transcribed on this Mac and is never sent anywhere else.</string>
+
+	<key>NSHighResolutionCapable</key>
+	<true/>
+
+	<key>NSHumanReadableCopyright</key>
+	<string>__COPYRIGHT__</string>
+</dict>
+</plist>
